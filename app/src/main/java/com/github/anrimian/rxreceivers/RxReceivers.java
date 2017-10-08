@@ -16,12 +16,12 @@ import io.reactivex.annotations.NonNull;
 
 public class RxReceivers {
 
-    public static Observable<Intent> create(@NonNull final String action, @NonNull final Context ctx) {
+    public static Observable<Intent> from(@NonNull final String action, @NonNull final Context ctx) {
         IntentFilter filter = new IntentFilter(action);
-        return create(filter, ctx);
+        return from(filter, ctx);
     }
 
-    public static Observable<Intent> create(@NonNull final IntentFilter intentFilter, @NonNull final Context ctx) {
+    public static Observable<Intent> from(@NonNull final IntentFilter intentFilter, @NonNull final Context ctx) {
         return Observable.create(new ObservableOnSubscribe<Intent>() {
             Context appContext = ctx.getApplicationContext();
             @Override
